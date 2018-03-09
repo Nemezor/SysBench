@@ -6,7 +6,7 @@
 
 texture_t* texturer_textures[TEXTURER_MAX_UNITS];
 
-uint32_t texturer_sample_texture(uint8_t index, float u, float v) {
+inline uint32_t texturer_sample_texture(uint8_t index, float u, float v) {
     if (index >= TEXTURER_MAX_UNITS) {
         return 0;
     }
