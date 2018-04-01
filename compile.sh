@@ -1,6 +1,10 @@
 shopt -s nullglob
 shopt -s globstar
 
+echo -e "\n#### Generating ####\n"
+
+python triangles.py 1000 2 25 1 > code/resources/triangles_1.c
+
 echo -e "\n#### Compiling ####\n"
 
 cp -a precompile/* workdir/
@@ -17,7 +21,7 @@ echo -e "\n#### Creating ISO ####\n"
 mkdir -p workdir/iso/boot/grub
 touch workdir/iso/boot/grub/grub.cfg
 echo -e "set default=0\n" >> workdir/iso/boot/grub/grub.cfg
-echo -e "set timeout=2\n" >> workdir/iso/boot/grub/grub.cfg
+echo -e "set timeout=0\n" >> workdir/iso/boot/grub/grub.cfg
 echo -e "menuentry \"SysBench\" {\n" >> workdir/iso/boot/grub/grub.cfg
 echo -e "\tmultiboot /boot/kernel.bin\n" >> workdir/iso/boot/grub/grub.cfg
 echo -e "}" >> workdir/iso/boot/grub/grub.cfg

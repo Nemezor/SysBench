@@ -96,15 +96,14 @@ inline void swrender_internal_fragment_shader(float x, float y, float z, float r
     uint32_t index = y * swrender_framebuffer_width + x;
 
     if (swrender_framebuffer_depth[index] <= z) {
-        uint32_t texture_color = swrender_renderer.texture_sample(0, u, v);
+        //uint32_t texture_color = swrender_renderer.texture_sample(0, u, v);
 
-        r = ((float)((texture_color >> 16) & 0xFF) / 255.0f);
-        g = ((float)((texture_color >> 8) & 0xFF) / 255.0f);
-        b = ((float)(texture_color & 0xFF) / 255.0f);
-        a = ((float)((texture_color >> 24) & 0xFF) / 255.0f);
+        //r = ((float)((texture_color >> 16) & 0xFF) / 255.0f);
+        //g = ((float)((texture_color >> 8) & 0xFF) / 255.0f);
+        //b = ((float)(texture_color & 0xFF) / 255.0f);
+        //a = ((float)((texture_color >> 24) & 0xFF) / 255.0f);
 
         uint32_t color = 0;
-        //a = 0.5f;
         if (a != 1.0f) {
             uint32_t dst_color = swrender_framebuffer_back[index];
             float one_minus_a = 1.0f - a;
